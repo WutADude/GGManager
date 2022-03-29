@@ -1,5 +1,6 @@
 ﻿using GGManager.Helpers;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,10 +11,10 @@ namespace GGManager
         public RequestsControl _Requests = new RequestsControl();
         public ClipboardManager _Clipboard = new ClipboardManager();
 
-        
+
         public MainForm()
         {
-           InitializeComponent();
+            InitializeComponent();
             _Requests._MForm = this;
             _Clipboard._MForm = this;
             LoginTB.Text = Properties.Settings.Default.UserLogin;
@@ -34,12 +35,33 @@ namespace GGManager
         {
             while (true)
             {
-                foreach (string AniChar in new string[] {"—", @"\", "|", "/" })
+                foreach (string AniChar in new string[] { "—", @"\", "|", "/" })
                 {
                     this.Text = $"GGManager {AniChar}";
                     await Task.Delay(110);
                 }
             }
+        }
+
+        public async Task DoSomeAnimation()
+        {
+            new Thread(delegate ()
+            {
+                while (MainGB.Height != 10)
+                {
+                    MainGB.Height--;
+                    Thread.Sleep(1);
+                }
+                MainGB.Visible = false;
+            }).Start();
+            new Thread(delegate ()
+            {
+                while (this.Height != 73)
+                {
+                    this.Height--;
+                    Thread.Sleep(10);
+                }
+            }).Start();
         }
     }
 }

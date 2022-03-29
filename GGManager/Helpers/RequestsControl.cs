@@ -35,6 +35,7 @@ namespace GGManager.Helpers
                     await SaveLogPass(login, password);
                     await URLS_update();
                     _MForm.StatusLabel.Text = $"[ВОШЁЛ] Всего ссылок на аккаунте: " + _Links.Count;
+                    await _MForm.DoSomeAnimation();
                     await Task.Delay(2700);
                     BeginMonitoring();
                 }
@@ -43,11 +44,11 @@ namespace GGManager.Helpers
             }
         }
 
-        private void BeginMonitoring()
+        private async void BeginMonitoring()
         {
             _MForm._Clipboard.ClipBoardMonitor(); // Запускаю асинхронную проверку буфера обмена
             _MForm.MainGB.Enabled = false;
-            _MForm.StatusLabel.Text = "Мониторю буфера обмена...";
+            _MForm.StatusLabel.Text = "Мониторю буфер обмена...";
             _MForm.FormTitleUPD(); // Запускаю асинхронное обновление заголовка окна главной формы (почему бы и нет)
         }
 

@@ -114,10 +114,11 @@ namespace GGManager
             // label3
             // 
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 107);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(0, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(253, 14);
+            this.label3.Size = new System.Drawing.Size(278, 14);
             this.label3.TabIndex = 3;
             this.label3.Text = "Разработчик: wDude";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
